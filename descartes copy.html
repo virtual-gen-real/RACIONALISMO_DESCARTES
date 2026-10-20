@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>René Descartes y el Racionalismo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+
+            --primary-color: #1a252f;
+
+            --secondary-color: #2c3e50;
+
+            --accent-color: #4a6b82;
+
+            --bg-color: #f8f9fa;
+
+            --card-bg: #ffffff;
+
+            --text-color: #2c3e50;
+
+            --text-muted: #6c757d;
+
+            --border-color: #e9ecef;
+
+            --success-color: #28a745;
+
+            --danger-color: #dc3545;
+
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+        }
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+        body {
+
+            font-family: 'Roboto', sans-serif;
+
+            background-color: var(--bg-color);
+
+            color: var(--text-color);
+
+            line-height: 1.6;
+
+        }
+
+        header {
+
+            background-color: var(--primary-color);
+
+            color: #ffffff;
+
+            padding: 2.5rem 1rem 1.5rem 1rem;
+
+            text-align: center;
+
+        }
+
+        header h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 2.5rem;
+
+            margin-bottom: 0.5rem;
+
+            font-weight: 700;
+
+        }
+
+        header p {
+
+            font-size: 1.1rem;
+
+            color: #bdc3c7;
+
+        }
+
+        nav {
+
+            background-color: var(--secondary-color);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .nav-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+        }
+
+        .nav-btn {
+
+            background: none;
+
+            border: none;
+
+            color: #ecf0f1;
+
+            padding: 1rem 1.2rem;
+
+            font-size: 0.95rem;
+
+            font-family: 'Roboto', sans-serif;
+
+            cursor: pointer;
+
+            transition: background 0.3s, color 0.3s;
+
+            border-bottom: 3px solid transparent;
+
+        }
+
+        .nav-btn:hover {
+
+            background-color: rgba(255, 255, 255, 0.05);
+
+            color: #ffffff;
+
+        }
+
+        .nav-btn.active {
+
+            border-bottom-color: var(--accent-color);
+
+            background-color: rgba(255, 255, 255, 0.1);
+
+            font-weight: 500;
+
+        }
+
+        main {
+
+            max-width: 1000px;
+
+            margin: 2rem auto;
+
+            padding: 0 1.5rem;
+
+        }
+
+        .tab-content {
+
+            display: none;
+
+            animation: fadeIn 0.4s ease-in-out;
+
+        }
+
+        .tab-content.active {
+
+            display: block;
+
+        }
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; transform: translateY(8px); }
+
+            to { opacity: 1; transform: translateY(0); }
+
+        }
+
+        .card {
+
+            background-color: var(--card-bg);
+
+            border-radius: 8px;
+
+            padding: 2rem;
+
+            margin-bottom: 1.5rem;
+
+            border: 1px solid var(--border-color);
+
+            box-shadow: var(--shadow);
+
+        }
+
+        h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: var(--primary-color);
+
+            font-size: 1.8rem;
+
+            margin-bottom: 1rem;
+
+            border-bottom: 2px solid var(--border-color);
+
+            padding-bottom: 0.5rem;
+
+        }
+
+        h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: var(--secondary-color);
+
+            font-size: 1.3rem;
+
+            margin: 1.2rem 0 0.6rem 0;
+
+        }
+
+        p {
+
+            margin-bottom: 1rem;
+
+            text-align: justify;
+
+        }
+
+        ul, ol {
+
+            margin-bottom: 1rem;
+
+            padding-left: 1.5rem;
+
+        }
+
+        li {
+
+            margin-bottom: 0.5rem;
+
+        }
+
+        blockquote {
+
+            border-left: 4px solid var(--accent-color);
+
+            padding-left: 1rem;
+
+            margin: 1.5rem 0;
+
+            font-style: italic;
+
+            color: var(--text-muted);
+
+            background-color: #f1f5f8;
+
+            padding: 1rem;
+
+            border-radius: 0 4px 4px 0;
+
+        }
+
+        .citation-tag {
+
+            display: inline-block;
+
+            font-size: 0.8rem;
+
+            background-color: #e2e8f0;
+
+            color: #475569;
+
+            padding: 0.2rem 0.5rem;
+
+            border-radius: 4px;
+
+            margin-top: 0.5rem;
+
+            text-decoration: none;
+
+        }
+
+        .citation-tag:hover {
+
+            background-color: #cbd5e1;
+
+        }
+
+        /* Interactive Quiz Styles */
+
+        .quiz-container {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 1.5rem;
+
+        }
+
+        .question-card {
+
+            background-color: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 8px;
+
+            padding: 1.5rem;
+
+            box-shadow: var(--shadow);
+
+        }
+
+        .question-title {
+
+            font-weight: 700;
+
+            margin-bottom: 1rem;
+
+            color: var(--primary-color);
+
+        }
+
+        .options-list {
+
+            list-style: none;
+
+            padding: 0;
+
+        }
+
+        .option-item {
+
+            margin-bottom: 0.5rem;
+
+        }
+
+        .option-btn {
+
+            width: 100%;
+
+            text-align: left;
+
+            padding: 0.8rem 1rem;
+
+            background-color: var(--bg-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 4px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 0.95rem;
+
+            transition: all 0.2s;
+
+        }
+
+        .option-btn:hover:not([disabled]) {
+
+            background-color: #e9ecef;
+
+        }
+
+        .option-btn.correct {
+
+            background-color: #d4edda;
+
+            border-color: #c3e6cb;
+
+            color: #155724;
+
+            font-weight: 500;
+
+        }
+
+        .option-btn.incorrect {
+
+            background-color: #f8d7da;
+
+            border-color: #f5c6cb;
+
+            color: #721c24;
+
+        }
+
+        .feedback {
+
+            margin-top: 0.8rem;
+
+            font-size: 0.9rem;
+
+            font-weight: 500;
+
+            display: none;
+
+        }
+
+        .feedback.correct {
+
+            color: var(--success-color);
+
+            display: block;
+
+        }
+
+        .feedback.incorrect {
+
+            color: var(--danger-color);
+
+            display: block;
+
+        }
+
+        .quiz-score-board {
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            padding: 1.5rem;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            margin-bottom: 1.5rem;
+
+        }
+
+        footer {
+
+            text-align: center;
+
+            padding: 2rem 1rem;
+
+            background-color: var(--primary-color);
+
+            color: #8a9ba8;
+
+            font-size: 0.9rem;
+
+            margin-top: 3rem;
+
+            border-top: 1px solid var(--border-color);
+
+        }
+
+        footer a {
+
+            color: #ffffff;
+
+            text-decoration: underline;
+
+        }
+
+        @media (max-width: 768px) {
+
+            header h1 { font-size: 1.8rem; }
+
+            .nav-btn { width: 100%; text-align: center; padding: 0.8rem; }
+
+            main { padding: 0 1rem; }
+
+            .card { padding: 1.2rem; }
+
+        }
+
+        :root {
+            --primary-color: #1b1a3a;
+            --secondary-color: #27264f;
+            --accent-color: #ff684f;
+            --bg-color: #fff9ed;
+            --card-bg: #fffdf7;
+            --text-color: #282744;
+            --text-muted: #69677d;
+            --border-color: #e9e1d3;
+            --success-color: #18785b;
+            --danger-color: #c44447;
+            --shadow: 0 14px 34px rgba(39, 38, 79, 0.09);
+            --blue: #5054dc;
+            --sun: #ffca58;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(ellipse at 8% 19%, rgba(255, 202, 88, 0.15), transparent 28rem),
+                radial-gradient(ellipse at 92% 46%, rgba(80, 84, 220, 0.08), transparent 26rem),
+                var(--bg-color);
+            color: var(--text-color);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        header {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 290px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 1.5rem 4rem;
+            background:
+                linear-gradient(120deg, rgba(27, 26, 58, 0.98), rgba(39, 38, 79, 0.96)),
+                var(--primary-color);
+            text-align: center;
+        }
+
+        header::before {
+            content: "FILOSOFÍA  ·  LABORATORIO VISUAL";
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1rem;
+            color: var(--sun);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            right: max(5%, calc((100vw - 1180px) / 2));
+            width: clamp(130px, 20vw, 230px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            background:
+                radial-gradient(circle, var(--sun) 0 7%, transparent 7.5% 23%, var(--accent-color) 23.5% 25%, transparent 25.5% 42%, var(--blue) 42.5% 44%, transparent 44.5%);
+            opacity: 0.8;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin-bottom: 0.8rem;
+            color: #fffdf7;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.35rem, 6vw, 4.4rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 1.05;
+            text-wrap: balance;
+        }
+
+        header p {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            margin: 0;
+            color: #d8d7ec;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-color);
+            background: rgba(27, 26, 58, 0.97);
+            box-shadow: 0 8px 22px rgba(27, 26, 58, 0.16);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 0.75rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            flex: 1 1 auto;
+            min-width: fit-content;
+            padding: 1rem 1.05rem;
+            border: none;
+            border-bottom: 3px solid transparent;
+            background: transparent;
+            color: #e7e5f4;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .nav-btn.active {
+            border-bottom-color: var(--sun);
+        }
+
+        main {
+            max-width: 1060px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .tab-content {
+            animation: fadeIn 0.35s ease-out;
+        }
+
+        .card,
+        .question-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+        }
+
+        .card {
+            padding: clamp(1.5rem, 4vw, 3rem);
+            margin-bottom: 1.75rem;
+        }
+
+        .card::before,
+        .question-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 7px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-color) 0 36%, var(--sun) 36% 68%, var(--blue) 68%);
+        }
+
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.035em;
+        }
+
+        h2 {
+            position: relative;
+            margin-bottom: 1.35rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: clamp(1.65rem, 4vw, 2.25rem);
+            line-height: 1.2;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 66px;
+            height: 4px;
+            border-radius: 9px;
+            background: var(--accent-color);
+        }
+
+        h3 {
+            margin: 1.5rem 0 0.6rem;
+            color: var(--blue);
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 0.65rem;
+            padding-left: 0.2rem;
+        }
+
+        li::marker {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        blockquote {
+            position: relative;
+            margin: 1.8rem 0;
+            padding: 1.4rem 1.5rem 1.4rem 1.8rem;
+            border: 0;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 0 14px 14px 0;
+            background: linear-gradient(105deg, #f0efff, #fff5df);
+            color: var(--primary-color);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.55rem);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .citation-tag {
+            padding: 0.42rem 0.75rem;
+            border: 1px solid #d9d7f8;
+            border-radius: 999px;
+            background: #f1f0ff;
+            color: #4143a9;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .citation-tag:hover {
+            background: #e4e2ff;
+            transform: translateY(-2px);
+        }
+
+        .question-card {
+            padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+        }
+
+        .question-title {
+            color: var(--primary-color);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.08rem;
+        }
+
+        .option-btn {
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: #fffaf0;
+            color: var(--text-color);
+            transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            transform: translateX(3px);
+            border-color: var(--blue);
+            background: #f1f0ff;
+        }
+
+        .option-btn.correct {
+            border-color: #8ccdb5;
+            background: #e0f4eb;
+            color: #155c45;
+        }
+
+        .option-btn.incorrect {
+            border-color: #e5a2a2;
+            background: #fff0ed;
+            color: #8d3438;
+        }
+
+        .quiz-score-board {
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at 90% 20%, rgba(255, 202, 88, 0.2), transparent 9rem),
+                var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-score-board h3 {
+            margin: 0;
+            color: #fff;
+        }
+
+        footer {
+            position: relative;
+            margin-top: 4rem;
+            padding: 2.4rem 1.25rem;
+            border-top: 4px solid var(--accent-color);
+            background: var(--primary-color);
+            color: #d8d7ec;
+        }
+
+        footer p {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--sun);
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--sun);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                min-height: 250px;
+                padding: 4.5rem 1.25rem 3.5rem;
+            }
+
+            header::after {
+                right: -42px;
+                opacity: 0.35;
+            }
+
+            header h1 {
+                font-size: clamp(2.2rem, 10vw, 3.2rem);
+            }
+
+            .nav-container {
+                justify-content: flex-start;
+            }
+
+            .nav-btn {
+                width: auto;
+                padding: 0.85rem 0.9rem;
+                text-align: center;
+            }
+
+            main {
+                margin: 1.75rem auto;
+                padding: 0 1rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.25rem 1.5rem 1.45rem;
+                border-radius: 14px;
+            }
+
+            .question-card {
+                padding: 1.25rem 1rem 1.25rem 1.4rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>René Descartes y el Racionalismo</h1>
+
+        <p>Una exploración interactiva de la filosofía moderna y la búsqueda de la certeza</p>
+
+    </header>
+
+    <nav>
+
+        <div class="nav-container">
+
+            <button class="nav-btn active" onclick="switchTab('inicio')">Inicio</button>
+
+            <button class="nav-btn" onclick="switchTab('contexto')">Contexto Histórico</button>
+
+            <button class="nav-btn" onclick="switchTab('racionalismo')">El Racionalismo</button>
+
+            <button class="nav-btn" onclick="switchTab('duda')">La Duda Metódica</button>
+
+            <button class="nav-btn" onclick="switchTab('metodo')">El Método Cartesiano</button>
+
+            <button class="nav-btn" onclick="switchTab('cogito')">El Cogito e Ideas</button>
+
+            <button class="nav-btn" onclick="switchTab('dios')">Dios y Sustancias</button>
+
+            <button class="nav-btn" onclick="switchTab('cuestionario')">Cuestionario Interactivo</button>
+
+        </div>
+
+    </nav>
+
+    <main>
+
+        <!-- Inicio -->
+
+        <section id="inicio" class="tab-content active">
+
+            <div class="card">
+
+                <h2>Bienvenido a la Filosofía Cartesiana</h2>
+
+                <p>Esta plataforma interactiva está diseñada para estudiar la vida, obra y pensamiento de René Descartes (1596-1650), considerado el padre de la filosofía moderna. A través de este recorrido conceptual, aprenderás cómo el racionalismo transformó la búsqueda del conocimiento, desplazando las autoridades tradicionales e instaurando la razón humana como criterio supremo de verdad.</p>
+
+                <blockquote>
+
+                    "Pienso, luego existo" (Cogito, ergo sum)
+
+                </blockquote>
+
+                <p>Navega a través de las pestañas superiores para explorar los temas fundamentales o evalúa tus conocimientos en el módulo final de preguntas e interrogantes clave.</p>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- Contexto Histórico -->
+
+        <section id="contexto" class="tab-content">
+
+            <div class="card">
+
+                <h2>Contexto Histórico del Siglo XVII</h2>
+
+                <p>El siglo XVII fue una época de profunda crisis y transformación radical en Europa, caracterizada por importantes acontecimientos que desestabilizaron las certezas medievales:</p>
+
+                <ul>
+
+                    <li><strong>Crisis Religiosa:</strong> La Reforma Protestante e Inquisición rompieron la unidad religiosa europea, generando prolongados conflictos armados como la Guerra de los Treinta Años (1618-1648).</li>
+
+                    <li><strong>Revolución Científica:</strong> Descubrimientos realizados por figuras como Copérnico, Kepler y Galileo cuestionaron el modelo geocéntrico tradicional y la física aristotélica aceptada durante siglos.</li>
+
+                    <li><strong>Decadencia de la Escolástica:</strong> El método deductivo tradicional aristotélico-escolástico se percibió como infructuoso para generar nuevos descubrimientos científicos.</li>
+
+                </ul>
+
+                <p>En este escenario de incertidumbre generalizada, René Descartes emprendió la tarea de reconstruir el edificio del conocimiento sobre bases completamente firmes e indubitables.</p>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- El Racionalismo -->
+
+        <section id="racionalismo" class="tab-content">
+
+            <div class="card">
+
+                <h2>La Corriente Racionalista</h2>
+
+                <p>El racionalismo es la corriente filosófica moderna que sostiene que la razón, y no la experiencia sensorial, es la fuente principal y la prueba fundamental del conocimiento verdadero.</p>
+
+                <h3>Características Principales:</h3>
+
+                <ul>
+
+                    <li><strong>Confianza absoluta en la razón:</strong> La razón humana posee la capacidad intrínseca de alcanzar la verdad objetiva.</li>
+
+                    <li><strong>Desconfianza de los sentidos:</strong> Los sentidos nos engañan con frecuencia y no pueden ofrecer un conocimiento seguro ni universal.</li>
+
+                    <li><strong>Ideas Innatas:</strong> La mente posee conocimientos o principios previos e independientes de cualquier experiencia sensible.</li>
+
+                    <li><strong>Modelo Matemático:</strong> Uso del método deductivo de la geometría y la matemática como ideal de conocimiento riguroso.</li>
+
+                </ul>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- La Duda Metódica -->
+
+        <section id="duda" class="tab-content">
+
+            <div class="card">
+
+                <h2>La Duda Metódica</h2>
+
+                <p>Para encontrar una verdad indudable, Descartes decide poner en duda sistemáticamente todo aquello de lo que se pueda dudar. A diferencia del escepticismo, la duda cartesiana es <strong>metódica, provisional y constructiva</strong>: su objetivo final no es negar la verdad, sino alcanzar una base sólida sobre la cual edificar el saber.</p>
+
+                <h3>Niveles de la Duda:</h3>
+
+                <ol>
+
+                    <li><strong>El engaño de los sentidos:</strong> Puesto que los sentidos nos engañan a veces, no es prudente fiarse completamente de ellos.</li>
+
+                    <li><strong>La confusión entre el sueño y la vigilia:</strong> No existen criterios indudables para distinguir la realidad de un sueño lúcido.</li>
+
+                    <li><strong>La hipótesis del Genio Maligno:</strong> Un ser poderoso y engañador podría estar haciendo que nos equivocemos incluso en las verdades matemáticas más evidentes.</li>
+
+                </ol>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- El Método Cartesiano -->
+
+        <section id="metodo" class="tab-content">
+
+            <div class="card">
+
+                <h2>Las Reglas del Método Cartesiano</h2>
+
+                <p>En su obra <em>El discurso del método</em> (1637), Descartes propone cuatro reglas fundamentales para dirigir adecuadamente la razón:</p>
+
+                <ol>
+
+                    <li><strong>Regla de la Evidencia:</strong> No aceptar jamás nada como verdadero que no se reconozca claramente con evidencia indudable. Evitar la precipitación y la prevención.</li>
+
+                    <li><strong>Regla del Análisis:</strong> Dividir cada una de las dificultades en tantas partes como sea posible para resolverlas mejor.</li>
+
+                    <li><strong>Regla de la Síntesis:</strong> Conducir con orden los pensamientos, comenzando por los objetos más simples e ir ascendiendo gradualmente hasta los complejos.</li>
+
+                    <li><strong>Regla de la Enumeración:</strong> Hacer recuentos integrales y revisiones generales para estar seguro de no haber omitido nada.</li>
+
+                </ol>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- El Cogito e Ideas -->
+
+        <section id="cogito" class="tab-content">
+
+            <div class="card">
+
+                <h2>El Cogito y la Tipología de las Ideas</h2>
+
+                <p>Incluso ante la hipótesis radical del "genio maligno", Descartes advierte que para ser engañado es necesario pensar, y para pensar es necesario existir. Surge así la primera verdad indudable:</p>
+
+                <blockquote>"Cogito, ergo sum" — Pienso, luego existo.</blockquote>
+
+                <p>A partir del <em>Cogito</em>, Descartes define al ser humano primordialmente como una <strong>Res Cogitans</strong> (Sustancia Pensante) e inspecciona el contenido de la mente, encontrando tres tipos de ideas:</p>
+
+                <ul>
+
+                    <li><strong>Ideas Adventicias:</strong> Proceden del exterior a través de la experiencia sensorial (ej. la idea de árbol o casa). Son falibles.</li>
+
+                    <li><strong>Ideas Facticias:</strong> Construidas por la imaginación combinando otras ideas (ej. un centauro o sirena).</li>
+
+                    <li><strong>Ideas Innatas:</strong> Nativas de la razón, no provienen de los sentidos ni de la fantasía (ej. la idea de Dios, el infinito, o las matemáticas).</li>
+
+                </ul>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- Dios y Sustancias -->
+
+        <section id="dios" class="tab-content">
+
+            <div class="card">
+
+                <h2>Dios y la Teoría de las Tres Sustancias</h2>
+
+                <p>Para superar la solipsista certeza del <em>Cogito</em> y demostrar la existencia del mundo exterior, Descartes recurre a la demostración de Dios como ser perfecto y garante de la realidad.</p>
+
+                <h3>Las Tres Sustancias Cartesianas:</h3>
+
+                <ul>
+
+                    <li><strong>Res Infinita (Dios):</strong> Sustancia perfecta, infinita, eterna e independiente. Al ser infinitamente bueno, no permite que vivamos en un engaño constante respecto al mundo exterior.</li>
+
+                    <li><strong>Res Cogitans (El Alma / Mente):</strong> Sustancia pensante finita, cuyo atributo esencial es el pensamiento, la duda y el entendimiento.</li>
+
+                    <li><strong>Res Extensa (El Cuerpo / Mundo Físico):</strong> Sustancia cuya propiedad fundamental es la extensión espacial (longitud, anchura y profundidad) y el movimiento.</li>
+
+                </ul>
+
+                <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">Fuente: INTRODUCCIÓN AL RACIONALISMO.docx</a>
+
+            </div>
+
+        </section>
+
+        <!-- Cuestionario Interactivo -->
+
+        <section id="cuestionario" class="tab-content">
+
+            <div class="card">
+
+                <h2>Cuestionario de Evaluación (14 Preguntas Clave)</h2>
+
+                <p>Pon a prueba tus conocimientos sobre Descartes y el racionalismo resolviendo las preguntas seleccionadas de la fuente original <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true" class="citation-tag">INTRODUCCIÓN AL RACIONALISMO.docx</a>.</p>
+
+            </div>
+
+            <div id="quiz-board" class="quiz-score-board">
+
+                <h3>Puntuación: <span id="score">0</span> / 14</h3>
+
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
+
+                <!-- Generado dinámicamente por JavaScript -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Material educativo elaborado en base a la fuente documental original <a href="https://docs.google.com/document/d/1CtGZe38MStlbC-DoK3mosGCTe1DBPsZd/edit?usp=sharing&amp;ouid=108522267432065484893&amp;rtpof=true&amp;sd=true">INTRODUCCIÓN AL RACIONALISMO.docx</a>.</p>
+
+    </footer>
+
+    <script>
+
+        // Navegación por Pestañas
+
+        function switchTab(tabId) {
+
+            const tabs = document.querySelectorAll('.tab-content');
+
+            const buttons = document.querySelectorAll('.nav-btn');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+
+            
+
+            // Activar botón correspondiente
+
+            const activeBtn = Array.from(buttons).find(btn => 
+
+                btn.getAttribute('onclick').includes(tabId)
+
+            );
+
+            if(activeBtn) activeBtn.classList.add('active');
+
+            
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        }
+
+        // Datos del Cuestionario
+
+        const questionsData = [
+
+            {
+
+                id: 1,
+
+                question: "1. ¿Cuál es la principal característica distintiva del Racionalismo?",
+
+                options: [
+
+                    "Considerar la experiencia sensorial como origen único de las ideas.",
+
+                    "Sostener que la razón es la fuente principal de conocimiento indudable.",
+
+                    "Negar la posibilidad de alcanzar cualquier tipo de verdad absoluta.",
+
+                    "Aceptar dogmáticamente los principios de la escolástica medieval."
+
+                ],
+
+                correct: 1,
+
+                explanation: "El racionalismo sostiene que la razón humana es el criterio primario y la fuente principal para alcanzar un conocimiento indudable."
+
+            },
+
+            {
+
+                id: 2,
+
+                question: "2. ¿En qué siglo desarrolló René Descartes su obra filosófica principal?",
+
+                options: [
+
+                    "Siglo XV",
+
+                    "Siglo XVI",
+
+                    "Siglo XVII",
+
+                    "Siglo XVIII"
+
+                ],
+
+                correct: 2,
+
+                explanation: "Descartes vivió entre 1596 y 1650, desarrollando su pensamiento durante el siglo XVII."
+
+            },
+
+            {
+
+                id: 3,
+
+                question: "3. ¿Cuál es el objetivo primordial de la 'Duda Metódica' cartesiana?",
+
+                options: [
+
+                    "Demostrar que es imposible llegar a conocer la verdad.",
+
+                    "Destruir la fe en Dios y las ciencias naturales.",
+
+                    "Encontrar una primera verdad indudable sobre la cual construir el conocimiento.",
+
+                    "Rechazar el uso del razonamiento matemático."
+
+                ],
+
+                correct: 2,
+
+                explanation: "La duda de Descartes es provisional y constructiva: sirve como herramienta para descartar lo incierto y hallar una certeza firme."
+
+            },
+
+            {
+
+                id: 4,
+
+                question: "4. ¿Qué representa la hipótesis del 'Genio Maligno'?",
+
+                options: [
+
+                    "Un demonio real que controla las acciones de los hombres.",
+
+                    "El nivel más radical de duda que cuestiona incluso las verdades matemáticas.",
+
+                    "Un concepto tomado de la tradición escolástica medieval.",
+
+                    "Una teoría para explicar las ilusiones ópticas cotidianas."
+
+                ],
+
+                correct: 1,
+
+                explanation: "Es un experimento mental extremo para dudar incluso del razonamiento lógico-matemático más evidente."
+
+            },
+
+            {
+
+                id: 5,
+
+                question: "5. ¿Cuál es la primera verdad indiscutible alcanzada por Descartes?",
+
+                options: [
+
+                    "El mundo físico existe independientemente.",
+
+                    "Dios existe y es infinitamente perfecto.",
+
+                    "Pienso, luego existo (Cogito, ergo sum).",
+
+                    "Los sentidos nunca nos engañan."
+
+                ],
+
+                correct: 2,
+
+                explanation: "Incluso si se es engañado, para dudar o ser engañado es necesario pensar, lo que confirma de inmediato la existencia del sujeto pensante."
+
+            },
+
+            {
+
+                id: 6,
+
+                question: "6. La regla del método cartesiano que exige 'dividir cada dificultad en tantas partes como sea posible' se llama:",
+
+                options: [
+
+                    "Regla de la Evidencia",
+
+                    "Regla del Análisis",
+
+                    "Regla de la Síntesis",
+
+                    "Regla de la Enumeración"
+
+                ],
+
+                correct: 1,
+
+                explanation: "La segunda regla o regla del Análisis establece la necesidad de descomponer problemas complejos en componentes más simples."
+
+            },
+
+            {
+
+                id: 7,
+
+                question: "7. ¿Qué son las 'Ideas Innatas' según Descartes?",
+
+                options: [
+
+                    "Ideas derivadas de la percepción sensorial cotidiana.",
+
+                    "Fantasías creadas libremente por la imaginación.",
+
+                    "Ideas constitutivas de la propia razón, no adquiridas por la experiencia.",
+
+                    "Prejuicios aprendidos durante la infancia."
+
+                ],
+
+                correct: 2,
+
+                explanation: "Las ideas innatas nacen con la capacidad racional del espíritu y no provienen de la experiencia externa."
+
+            },
+
+            {
+
+                id: 8,
+
+                question: "8. Las ideas de un 'centauro' o una 'sirena' son clasificadas por Descartes como:",
+
+                options: [
+
+                    "Ideas Adventicias",
+
+                    "Ideas Facticias",
+
+                    "Ideas Innatas",
+
+                    "Ideas Evidentes"
+
+                ],
+
+                correct: 1,
+
+                explanation: "Las ideas facticias son aquellas construidas activamente por la combinación imaginativa del sujeto."
+
+            },
+
+            {
+
+                id: 9,
+
+                question: "9. ¿Cómo define Descartes a la 'Res Cogitans'?",
+
+                options: [
+
+                    "La sustancia material que ocupa un lugar en el espacio.",
+
+                    "La sustancia infinita y eterna que es Dios.",
+
+                    "La sustancia pensante o el alma humana.",
+
+                    "El conjunto de leyes físicas del universo."
+
+                ],
+
+                correct: 2,
+
+                explanation: "La Res Cogitans identifica la sustancia cuyo atributo fundamental es el pensamiento, la duda y el entendimiento."
+
+            },
+
+            {
+
+                id: 10,
+
+                question: "10. ¿Cuál es la propiedad fundamental de la 'Res Extensa'?",
+
+                options: [
+
+                    "La inmaterialidad y la conciencia.",
+
+                    "La extensión espacial (longitud, anchura, profundidad).",
+
+                    "La perfección divina infinita.",
+
+                    "El libre albedrío."
+
+                ],
+
+                correct: 1,
+
+                explanation: "El cuerpo y la materia se definen esencialmente por poseer extensión tridimensional."
+
+            },
+
+            {
+
+                id: 11,
+
+                question: "11. ¿Por qué es fundamental la prueba de la existencia de Dios en el sistema cartesiano?",
+
+                options: [
+
+                    "Porque garantiza que nuestras ideas claras y distintas sobre el mundo no son un engaño.",
+
+                    "Para someter la filosofía a las autoridades eclesiásticas.",
+
+                    "Para negar la validez de la matemática.",
+
+                    "Porque es el único tema sobre el cual no se puede dudar."
+
+                ],
+
+                correct: 0,
+
+                explanation: "Al ser Dios perfecto e infinitamente bueno, desarticula la hipótesis del genio maligno y asegura la realidad del mundo exterior."
+
+            },
+
+            {
+
+                id: 12,
+
+                question: "12. La regla que indica 'revisar exhaustivamente todo el proceso para estar seguros de no omitir nada' es:",
+
+                options: [
+
+                    "Evidencia",
+
+                    "Análisis",
+
+                    "Síntesis",
+
+                    "Enumeración"
+
+                ],
+
+                correct: 3,
+
+                explanation: "La cuarta regla o Enumeración exige recuentos integrales para garantizar la seguridad del proceso científico."
+
+            },
+
+            {
+
+                id: 13,
+
+                question: "13. ¿Qué corriente de pensamiento contrapuesta al Racionalismo surgió en las Islas Británicas?",
+
+                options: [
+
+                    "Idealismo absoluto",
+
+                    "Empirismo",
+
+                    "Existencialismo",
+
+                    "Estructuralismo"
+
+                ],
+
+                correct: 1,
+
+                explanation: "El Empirismo (Locke, Hume) se contrapuso al Racionalismo al defender la experiencia sensible como fuente de conocimiento."
+
+            },
+
+            {
+
+                id: 14,
+
+                question: "14. ¿En qué famosa obra expone Descartes por primera vez las reglas de su método en francés?",
+
+                options: [
+
+                    "Meditaciones Metafísicas",
+
+                    "Principios de la Filosofía",
+
+                    "El Discurso del Método",
+
+                    "Las Pasiones del Alma"
+
+                ],
+
+                correct: 2,
+
+                explanation: "El Discurso del Método (1637) fue escrito originalmente en francés para divulgar el conocimiento más allá del latín académico."
+
+            }
+
+        ];
+
+        let score = 0;
+
+        const answeredQuestions = new Set();
+
+        function renderQuiz() {
+
+            const container = document.getElementById('quiz-container');
+
+            container.innerHTML = '';
+
+            questionsData.forEach((q, index) => {
+
+                const card = document.createElement('div');
+
+                card.className = 'question-card';
+
+                card.innerHTML = `
+
+                    <div class="question-title">${q.question}</div>
+
+                    <ul class="options-list">
+
+                        ${q.options.map((opt, optIdx) => `
+
+                            <li class="option-item">
+
+                                <button class="option-btn" id="btn-${index}-${optIdx}" onclick="checkAnswer(${index}, ${optIdx})">
+
+                                    ${opt}
+
+                                </button>
+
+                            </li>
+
+                        `).join('')}
+
+                    </ul>
+
+                    <div class="feedback" id="feedback-${index}"></div>
+
+                `;
+
+                container.appendChild(card);
+
+            });
+
+        }
+
+        function checkAnswer(qIndex, selectedOpt) {
+
+            if (answeredQuestions.has(qIndex)) return;
+
+            const q = questionsData[qIndex];
+
+            const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+
+            const selectedBtn = document.getElementById(`btn-${qIndex}-${selectedOpt}`);
+
+            const correctBtn = document.getElementById(`btn-${qIndex}-${q.correct}`);
+
+            // Deshabilitar todos los botones de esta pregunta
+
+            q.options.forEach((_, optIdx) => {
+
+                const btn = document.getElementById(`btn-${qIndex}-${optIdx}`);
+
+                btn.disabled = true;
+
+            });
+
+            if (selectedOpt === q.correct) {
+
+                selectedBtn.classList.add('correct');
+
+                feedbackEl.textContent = '¡Correcto! ' + q.explanation;
+
+                feedbackEl.className = 'feedback correct';
+
+                score++;
+
+                document.getElementById('score').textContent = score;
+
+            } else {
+
+                selectedBtn.classList.add('incorrect');
+
+                correctBtn.classList.add('correct');
+
+                feedbackEl.textContent = 'Incorrecto. ' + q.explanation;
+
+                feedbackEl.className = 'feedback incorrect';
+
+            }
+
+            answeredQuestions.add(qIndex);
+
+        }
+
+        // Inicialización
+
+        window.addEventListener('DOMContentLoaded', () => {
+
+            renderQuiz();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
